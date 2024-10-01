@@ -1,25 +1,21 @@
 /*
-Welcome to the config.js file
-It holds the actual content of chapters, the transitions, and other
-important information for the storymap.
-########################################################################
-Contents:
+config.js file
 */
 
 /*
 ########################################################################
 HEADER SECTION
 */
-let topTitleDiv = "<h4>Template</h4>";
-let titleDiv = "<h1>Storymap template</h1>";
-let bylineDiv = "<p>Name<br>Date</p>";
+let topTitleDiv = "<h4>Pennsylvania charging stations map</h4>";
+let titleDiv = "<h1>Exploring Charging stations in Pennsylvania</h1>";
+let bylineDiv = "<p>Shuya Guan<br>Sept 24th 2024</p>";
 let descriptionDiv = `
-<p>Welcome!</p>
-<p>You can insert images:</q>
+<p>The Pennsylvania Electric Vehicle Charging Station Map provides a detailed breakdown of charging station density across various regions in the state. Major metropolitan areas such as Philadelphia and Pittsburgh boast a higher concentration of charging stations, making it convenient for urban EV drivers to find nearby facilities. Highways and intercity routes are also well-equipped with charging points, allowing for seamless long-distance travel.</p>
+<p>In contrast, rural regions and smaller towns may have fewer stations, but the map helps identify key charging locations to ensure drivers are never too far from a power source. The map also highlights different types of charging options, from rapid chargers to standard ones, catering to diverse vehicle needs.</q>
 <div style="max-width:100%; text-align:center; margin-left:auto; margin-right:auto">
-  <img src="./data/images/your_image.png" alt="Image caption" style="max-width:75%; height:auto;">
+  <img src="data/images/commercial-ev-charging-station.jpg" alt="Image caption" style="max-width:75%; height:auto;">
 </div>
-<p><em>Above: an image.</em></p>
+<p><em>Charging station of</em></p>
 <p><br></p>
 <p style="text-align:center">Scroll to continue<br>▼</p>
 `;
@@ -30,18 +26,33 @@ CHAPTERS
 */
 
 let divChapter1 =`
-<h3>Title for Chapter 1 - lines</h3>
-<p>Your description here.</p>
+<h3>Overview of Charging stations in Pennsylvania</h3>
+<p>Each point on the map is counted as one station in the station count. A station appears as one point on the map, regardless of the number of fuel dispensers or electric vehicle supply equipment (EVSE) ports at that location. Station addresses are geocoded and mapped using an automatic geocoding application. The geocoding application returns the most accurate location based on the provided address. Station locations may also be provided by external sources (e.g., station operators) and/or verified in a geographic information system (GIS) tool. This information is considered highly accurate, and these coordinates override any information generated using the geocoding application.</p>
 `;
 
 let divChapter2 =`
-<h3>Title for Chapter 2 - points</h3>
-<p>Your description here.</p>
+<h3>Southeastern Metropolitan Area of Pennsylvania (Philadelphia and Surroundings)</h3>
+<p>The southeastern metropolitan area of Pennsylvania, including Philadelphia and its surrounding suburbs, has the highest concentration of charging stations. This area has a large number of electric vehicle users, and the primary charging stations are located near shopping malls, large office buildings, and residential areas.</p>
 `;
 
 let divChapter3 =`
-<h3>Title for Chapter 3 - polygons</h3>
-<p>Your description here.</p>
+<h3>Central Pennsylvania (Harrisburg and Agricultural Areas)</h3>
+<p>Central Pennsylvania is mainly an agricultural and rural area, where charging stations are relatively sparse, primarily found in small towns and highway service areas. The layout of charging stations in this region helps meet the needs of long-distance commuting and transportation.</p>
+`;
+
+let divChapter4 =`
+<h3>Western Pennsylvania Industrial Cities (Pittsburgh)</h3>
+<p>The industrial cities of Western Pennsylvania, such as Pittsburgh, also have a relatively dense network of charging stations, especially around industrial areas and business parks. This region is accelerating its transformation to promote the adoption of electric vehicles.</p>
+`;
+
+let divChapter5 =`
+<h3>Northeastern Pennsylvania Tourist Area (Pocono Mountains)</h3>
+<p>The Pocono Mountains in northeastern Pennsylvania are a popular tourist destination, with charging stations primarily located near hotels, resorts, and major attractions. Electric vehicle tourists can conveniently charge their vehicles here and enjoy green travel.</p>
+`;
+
+let divChapter6 =`
+<h3>Northwestern Pennsylvania (Erie Region)</h3>
+<p>Northwestern Pennsylvania is mostly undeveloped and suburban, with relatively sparse charging station coverage. However, there is potential for more charging infrastructure in the future, particularly along Lake Erie and the interstate highways.</p>
 `;
 
 /*
@@ -50,7 +61,7 @@ FOOTER SECTION
 */
 
 let footerDiv = `
-<p>Your footer here.</p>
+<p>Source: Alternative Fueling Station Locator</p>
 `;
 
 /*
@@ -60,12 +71,12 @@ MAP AND TRANSITIONS - THE MAIN CONFIGURATION SECTION
 
 var config = {
     // Change the map style here
-    style: "mapbox://styles/mapbox/light-v11",
+    style: "mapbox://styles/mapbox/dark-v10",
 
     // Replace this with your own Mapbox token!
-    accessToken: "pk.eyJ1IjoiYnlyb25ubiIsImEiOiJjbTE1c2M5ZGswYmRxMnRvbnl0Mmw1NDFiIn0.jWMkIPu68E9-Bezda3lAlQ",
+    accessToken: "pk.eyJ1IjoiZ3NodXlhIiwiYSI6ImNtMWt3eTVqajAyc3cyam9qenVwNjJyamMifQ.Rsl44dpULTeJXxXPiDauFg",
     showMarkers: false,
-    markerColor: "#242422",
+    markerColor: "#00FF00",
     theme: "light",
     use3dTerrain: false,
     topTitle: topTitleDiv,
@@ -82,45 +93,25 @@ var config = {
         hidden: false,
         chapterDiv: divChapter1,
         location: {
-          center: [103.845436, 1.369115], // default center
-          zoom: 11,
+          center: [-77.1945, 40.2033], // default center
+          zoom: 9,
           zoomSmall: 11,
-          pitch: 0,
-          bearing: 0,
+          pitch: 45,
+          bearing: 10,
         },
         mapAnimation: "flyTo",
-        rotateAnimation: false,
+        rotateAnimation: true,
         callback: "",
         onChapterEnter: [
             {
-                layer: "your_line_layer",
+                layer: "alt_fuel_stations_points_layer",
                 opacity: 1,
-                duration: 300,
-            },
-            {
-                layer: "your_points_layer",
-                opacity: 0,
-                duration: 300,
-            },
-            {
-                layer: "your_polygons_layer",
-                opacity: 0,
                 duration: 300,
             },
         ],
         onChapterExit: [
             {
-                layer: "your_line_layer",
-                opacity: 1,
-                duration: 300,
-            },
-            {
-                layer: "your_points_layer",
-                opacity: 0,
-                duration: 300,
-            },
-            {
-                layer: "your_polygons_layer",
+                layer: "alt_fuel_stations_points_layer",
                 opacity: 0,
                 duration: 300,
             },
@@ -137,9 +128,9 @@ var config = {
         description: "",
         chapterDiv: divChapter2,
         location: {
-          center: [103.723416, 1.332541], // zoom here!
-          zoom: 16,
-          zoomSmall: 14,
+          center: [-75.1652, 39.9526], // zoom here!
+          zoom: 7,
+          zoomSmall: 10,
           pitch: 0,
           bearing: 0,
         },
@@ -148,35 +139,15 @@ var config = {
         callback: "",
         onChapterEnter: [
             {
-                layer: "your_line_layer",
-                opacity: 0,
-                duration: 300,
-            },
-            {
-                layer: "your_points_layer",
+                layer: "alt_fuel_stations_points_layer",
                 opacity: 1,
-                duration: 300,
-            },
-            {
-                layer: "your_polygons_layer",
-                opacity: 0,
                 duration: 300,
             },
         ],
         onChapterExit: [
             {
-                layer: "your_line_layer",
-                opacity: 0,
-                duration: 300,
-            },
-            {
-                layer: "your_points_layer",
+                layer: "alt_fuel_stations_points_layer",
                 opacity: 1,
-                duration: 300,
-            },
-            {
-                layer: "your_polygons_layer",
-                opacity: 0,
                 duration: 300,
             },
         ],
@@ -192,8 +163,8 @@ var config = {
             description: "",
             chapterDiv: divChapter3,
             location: {
-              center: [103.845436, 1.369115], 
-              zoom: 11,
+              center: [-76.8867, 40.2732], 
+              zoom: 9,
               zoomSmall: 11,
               pitch: 0,
               bearing: 0,
@@ -203,38 +174,122 @@ var config = {
             callback: "",
             onChapterEnter: [
                 {
-                    layer: "your_line_layer",
-                    opacity: 0,
-                    duration: 300,
-                },
-                {
-                    layer: "your_points_layer",
-                    opacity: 0,
-                    duration: 300,
-                },
-                {
-                    layer: "your_polygons_layer",
+                    layer: "alt_fuel_stations_line_layer",
                     opacity: 1,
                     duration: 300,
                 },
             ],
             onChapterExit: [
                 {
-                    layer: "your_line_layer",
-                    opacity: 0,
-                    duration: 300,
-                },
-                {
-                    layer: "your_points_layer",
-                    opacity: 0,
-                    duration: 300,
-                },
-                {
-                    layer: "your_polygons_layer",
+                    layer: "alt_fuel_stations_line_layer",
                     opacity: 1,
                     duration: 300,
                 },
             ],
           },
-
+        // CHAPTER 4
+        // ################################################################
+        {
+          id: "view4",
+          alignment: "left",
+          hidden: false,
+          title: "",
+          image: "",
+          description: "",
+          chapterDiv: divChapter4,
+          location: {
+            center: [-79.9959, 40.4406], 
+            zoom: 10,
+            zoomSmall: 11,
+            pitch: 0,
+            bearing: 0,
+          },
+          mapAnimation: "flyTo",
+          rotateAnimation: false,
+          callback: "",
+          onChapterEnter: [
+              {
+                  layer: "alt_fuel_stations_line_layer",
+                  opacity: 1,
+                  duration: 300,
+              },
+          ],
+          onChapterExit: [
+              {
+                  layer: "alt_fuel_stations_line_layer",
+                  opacity: 1,
+                  duration: 300,
+              },
+          ],
+        },
+        // CHAPTER 5
+        // ################################################################
+        {
+          id: "view5",
+          alignment: "left",
+          hidden: false,
+          title: "",
+          image: "",
+          description: "",
+          chapterDiv: divChapter5,
+          location: {
+            center: [-75.1503, 41.1792], 
+            zoom: 9,
+            zoomSmall: 11,
+            pitch: 0,
+            bearing: 0,
+          },
+          mapAnimation: "flyTo",
+          rotateAnimation: false,
+          callback: "",
+          onChapterEnter: [
+              {
+                  layer: "alt_fuel_stations_line_layer",
+                  opacity: 1,
+                  duration: 300,
+              },
+          ],
+          onChapterExit: [
+              {
+                  layer: "alt_fuel_stations_line_layer",
+                  opacity: 1,
+                  duration: 300,
+              },
+          ],
+        },
+        // CHAPTER 6
+        // ################################################################
+        {
+          id: "view6",
+          alignment: "left",
+          hidden: false,
+          title: "",
+          image: "",
+          description: "",
+          chapterDiv: divChapter6,
+          location: {
+            center: [-80.0851, 42.1292], 
+            zoom: 9,
+            zoomSmall: 11,
+            pitch: 0,
+            bearing: 0,
+          },
+          mapAnimation: "flyTo",
+          rotateAnimation: false,
+          callback: "",
+          onChapterEnter: [
+              {
+                  layer: "alt_fuel_stations_line_layer",
+                  opacity: 1,
+                  duration: 300,
+              },
+          ],
+          onChapterExit: [
+              {
+                  layer: "alt_fuel_stations_line_layer",
+                  opacity: 1,
+                  duration: 300,
+              },
+          ],
+        },
     ]};

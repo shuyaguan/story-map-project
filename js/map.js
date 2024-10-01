@@ -1,22 +1,5 @@
 /*
-Welcome to the map.js file
-This file contains all the JavaScript code that will power the storymap.
-########################################################################
-Contents:
-General Variables
-- smallMedia
-- layerTypes
-- alignments
-
-General Functions
-- getLayerPaintType
-- setLayerOpacity
-
-Story and Chapter Elements
-- story
-- features
-- header
-- footer
+map.js file
 
 Set up innerHTML
 Generate chapters with createChapterElements
@@ -252,47 +235,19 @@ For this template storymap, we have the following layers:
 ########################################################################
 */
 map.on("load", function () {
-    // 1. your_line_layer (line)
+    // points_layer (circle)
     map.addLayer({
-        id: "your_line_layer",
-        type: "line",
-        source: {
-            type: "geojson",
-            data: "data/layers/your_line_layer.geojson"
-        },
-        paint: {
-            "line-color": ["get", "colour"], // this colours the line based on the colour attribute in the geojson
-            "line-width": 2
-        }
-    });
-
-    // 2. your_points_layer (circle)
-    map.addLayer({
-        id: "your_points_layer",
+        id: "alt_fuel_stations_points_layer",
         type: "circle",
         source: {
             type: "geojson",
-            data: "data/layers/your_points_layer.geojson"
+            data: "data/layers/alt_fuel_stations.geojson"
         },
         paint: {
-            "circle-color": "#d50a78",  // Replace with the desired color
+            "circle-color": "#00FF00",  // Replace with the desired color
             "circle-radius": 5,  // Adjust as needed
-            "circle-stroke-color": "#d50a78",
+            "circle-stroke-color": "#00FF00",
             "circle-stroke-width": 1
-        }
-    });
-
-    // 3. your_polygons_layer (fill)
-    map.addLayer({
-        id: "your_polygons_layer",
-        type: "fill",
-        source: {
-            type: "geojson",
-            data: "data/layers/your_polygons_layer.geojson"
-        },
-        paint: {
-            "fill-color": "#ffa600",
-            "fill-opacity": 0.99
         }
     });
   
