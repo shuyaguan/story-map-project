@@ -1,26 +1,15 @@
 /*
-Welcome to the style.css file
-########################################################################
-Contents:
-body
-#map
-#header
-#features
-#footer
-styling for the header
-styling for the features
-styling for the footer
-styling for any popups
-styling for various classes used in the storymap
+style.css file
+
 */
 
-/* The body element is the parent element of all other elements. */
+
 body {
     margin: 0;
     padding: 0;
 }
 
-/* The map element is the container for the map. */
+
 #map {
     top: 0;
     width: 100%;
@@ -28,39 +17,39 @@ body {
     position: fixed;
 }
 
-/* The header will hold the title, byline and an introductory description of the project. */
+
 #header {
     margin: auto;
     min-height: 100vh; 
     width: 100%; 
     position: relative; 
-    z-index: 5; /* Ensures the header is always on top of the map */
-    padding: 2vh 0vh 5vh 0vh; /* top right bottom left */
+    z-index: 5; 
+    padding: 2vh 0vh 5vh 0vh; 
   }
 
-/* The features element holds all the chapters. */
+
 #features {
     padding-top: 80vh;
     padding-bottom: 10vh;
   }
-  @media (max-width: 750px) { /* This would be for media with a maximum width of 750px */
+  @media (max-width: 750px) { 
     #features {
       width: 90vw;
       margin: 0 auto;
     }
   }
 
-/* The footer contains some concluding notes, like attributions to gov.sg */
+
 #footer {
     min-height: 2vh;
     text-align: left;
     line-height: 25px;
     width: 100%;
     position: relative;
-    z-index: 5; /* Ensures the footer is always on top of the map */
+    z-index: 5; 
   }
 
-/* Styling the header. */
+
 #header h1 {
     font-weight: 700;
     text-transform: uppercase;
@@ -92,7 +81,7 @@ body {
     margin: 1em auto 1em auto;
 }
 
-/* Styling features. */
+
 #features h3 {
     font-weight: 700;
     text-transform: uppercase;
@@ -111,7 +100,7 @@ body {
   margin-top: -5px;
 }
 
-/* Styling the footer. */
+
 #footer p {
     font-family: 'Roboto', sans-serif;
     font-size: 0.9em;
@@ -124,7 +113,7 @@ body {
       color: #e96138;
     }
 
-/* Styling any popups */
+
 .mapboxgl-popup-content h4 {
     font-weight: 500;
     font-size: 0.9em;
@@ -141,7 +130,7 @@ body {
     margin-bottom: 0em;
 }
 
-/* This section defines styles for various classes used in the storymap. */
+
 .hidden {
     visibility: hidden;
 }
@@ -202,7 +191,7 @@ body {
     }
 }
 
-/* This chunk supposedly fixes an issue on mobile browsers where scroll breaks  */
+
 .mapboxgl-canvas-container.mapboxgl-touch-zoom-rotate.mapboxgl-touch-drag-pan, 
 .mapboxgl-canvas-container.mapboxgl-touch-zoom-rotate.mapboxgl-touch-drag-pan .mapboxgl-canvas {
 touch-action: unset;

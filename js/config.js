@@ -3,7 +3,7 @@ config.js file
 */
 
 /*
-########################################################################
+
 HEADER SECTION
 */
 let topTitleDiv = "<h4>Pennsylvania charging stations map</h4>";
@@ -12,22 +12,23 @@ let bylineDiv = "<p>Shuya Guan<br>Sept 24th 2024</p>";
 let descriptionDiv = `
 <p>The Pennsylvania Electric Vehicle Charging Station Map provides a detailed breakdown of charging station density across various regions in the state. Major metropolitan areas such as Philadelphia and Pittsburgh boast a higher concentration of charging stations, making it convenient for urban EV drivers to find nearby facilities. Highways and intercity routes are also well-equipped with charging points, allowing for seamless long-distance travel.</p>
 <p>In contrast, rural regions and smaller towns may have fewer stations, but the map helps identify key charging locations to ensure drivers are never too far from a power source. The map also highlights different types of charging options, from rapid chargers to standard ones, catering to diverse vehicle needs.</q>
+<p>The map also highlights various types of charging options, from rapid chargers to standard ones, catering to the diverse needs of different vehicles. This tool is particularly valuable for electric vehicle owners, urban planners, and researchers in clean energy infrastructure, offering insights into the distribution of charging stations and the variety of charging facilities available.</q>
 <div style="max-width:100%; text-align:center; margin-left:auto; margin-right:auto">
   <img src="data/images/commercial-ev-charging-station.jpg" alt="Image caption" style="max-width:75%; height:auto;">
 </div>
-<p><em>Charging station of</em></p>
+<p><em>Charging station of EV</em></p>
 <p><br></p>
 <p style="text-align:center">Scroll to continue<br>▼</p>
 `;
 
 /*
-########################################################################
+
 CHAPTERS
 */
 
 let divChapter1 =`
 <h3>Overview of Charging stations in Pennsylvania</h3>
-<p>Each point on the map is counted as one station in the station count. A station appears as one point on the map, regardless of the number of fuel dispensers or electric vehicle supply equipment (EVSE) ports at that location. Station addresses are geocoded and mapped using an automatic geocoding application. The geocoding application returns the most accurate location based on the provided address. Station locations may also be provided by external sources (e.g., station operators) and/or verified in a geographic information system (GIS) tool. This information is considered highly accurate, and these coordinates override any information generated using the geocoding application.</p>
+<p>This map provides an overview of charging stations across Pennsylvania. Each point on the map represents a charging station, regardless of how many charging ports (EVSE) are available at that location. The station count is based on these points, clearly illustrating the distribution of charging facilities across different regions in Pennsylvania. Station addresses are accurately mapped using an automatic geocoding tool. In some cases, station locations are provided directly by external sources (such as station operators) and verified through a Geographic Information System (GIS). These verified coordinates take precedence over automatically generated data, ensuring location accuracy. This provides a reliable reference for EV drivers planning routes, urban planners designing infrastructure, and researchers analyzing the charging network.</p>
 `;
 
 let divChapter2 =`
@@ -56,7 +57,7 @@ let divChapter6 =`
 `;
 
 /*
-########################################################################
+
 FOOTER SECTION
 */
 
@@ -65,15 +66,15 @@ let footerDiv = `
 `;
 
 /*
-########################################################################
-MAP AND TRANSITIONS - THE MAIN CONFIGURATION SECTION
+
+MAP AND TRANSITIONS
 */
 
 var config = {
-    // Change the map style here
+    // Map style
     style: "mapbox://styles/mapbox/dark-v10",
 
-    // Replace this with your own Mapbox token!
+    // Mapbox token
     accessToken: "pk.eyJ1IjoiZ3NodXlhIiwiYSI6ImNtMWt3eTVqajAyc3cyam9qenVwNjJyamMifQ.Rsl44dpULTeJXxXPiDauFg",
     showMarkers: false,
     markerColor: "#00FF00",
@@ -85,15 +86,14 @@ var config = {
     description: descriptionDiv,
     footer: footerDiv,
     chapters: [
-      // CHAPTER 1
-      // ################################################################
+      
       {
         id: "view1",
         alignment: "right",
         hidden: false,
         chapterDiv: divChapter1,
         location: {
-          center: [-77.1945, 40.2033], // default center
+          center: [-77.1945, 40.2033], 
           zoom: 9,
           zoomSmall: 11,
           pitch: 45,
@@ -117,8 +117,7 @@ var config = {
             },
           ],
         },
-        // CHAPTER 2
-        // ################################################################
+        
         {
         id: "view2",
         alignment: "left",
@@ -152,8 +151,7 @@ var config = {
             },
         ],
         },
-        // CHAPTER 3
-        // ################################################################
+        
         {
             id: "view3",
             alignment: "left",
@@ -187,8 +185,7 @@ var config = {
                 },
             ],
           },
-        // CHAPTER 4
-        // ################################################################
+        
         {
           id: "view4",
           alignment: "left",
@@ -222,8 +219,7 @@ var config = {
               },
           ],
         },
-        // CHAPTER 5
-        // ################################################################
+        
         {
           id: "view5",
           alignment: "left",
@@ -257,8 +253,7 @@ var config = {
               },
           ],
         },
-        // CHAPTER 6
-        // ################################################################
+        
         {
           id: "view6",
           alignment: "left",
